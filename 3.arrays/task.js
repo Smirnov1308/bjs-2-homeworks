@@ -11,6 +11,10 @@ function getUsersNamesInAgeRange(users, gender) {
     return 0;
   }
 
+  if (filteredUsers.length === 1) {
+    return filteredUsers[0].age;
+  }
+
   const totalAge = filteredUsers.reduce((sum, user) => sum + user.age, 0);
   const averageAge = totalAge / filteredUsers.length;
 
