@@ -5,7 +5,7 @@ function Student(name, gender, age) {
   this.subject = null;
   this.marks = [];
   this.excluded = false;
-  this.exclusionReason = null;
+  this.exclusionReason = undefined;
 }
 
 Student.prototype.setSubject = function(subjectName) {
