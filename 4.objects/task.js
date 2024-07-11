@@ -5,6 +5,7 @@ function Student(name, gender, age) {
   this.subject = null;
   this.marks = [];
   this.excluded = false;
+  this.exclusionReason = null;
 }
 
 Student.prototype.setSubject = function(subjectName) {
@@ -31,5 +32,6 @@ Student.prototype.exclude = function(reason) {
   this.subject = null;
   this.marks = [];
   this.excluded = true;
+  this.exclusionReason = reason;
   console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
 };
