@@ -2,7 +2,10 @@ function Student(name, gender, age) {
   this.name = name;
   this.gender = gender;
   this.age = age;
+  this.subject = undefined;
   this.marks = [];
+  this.excluded = false;
+  this.exclusionReason = undefined;
 }
 
 Student.prototype.setSubject = function(subjectName) {
@@ -26,8 +29,9 @@ Student.prototype.getAverage = function() {
 };
 
 Student.prototype.exclude = function(reason) {
+  this.subject = undefined;
   this.marks = [];
-  this.excluded = true;
+  this.excluded = reason;
   this.exclusionReason = reason;
   console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
 };
