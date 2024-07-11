@@ -3,7 +3,7 @@ function Student(name, gender, age) {
   this.gender = gender;
   this.age = age;
   this.subject = null;
-  this.marks = undefined;
+  this.marks = [];
   this.excluded = false;
   this.exclusionReason = null;
 }
