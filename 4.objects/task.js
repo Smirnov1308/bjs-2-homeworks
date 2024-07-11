@@ -15,6 +15,9 @@ Student.prototype.addMarks = function(...marksToAdd) {
     console.log(`Студент ${this.name} исключен, добавление оценок невозможно.`);
     return;
   }
+  if (!!marksToAdd.length) {
+    return;
+  }
   this.marks.push(...marksToAdd);
 };
 
