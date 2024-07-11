@@ -2,10 +2,8 @@ function Student(name, gender, age) {
   this.name = name;
   this.gender = gender;
   this.age = age;
-  this.subject = undefined;
   this.marks = [];
-  this.excluded = false;
-  this.exclusionReason = undefined;
+  
 }
 
 Student.prototype.setSubject = function(subjectName) {
@@ -13,7 +11,7 @@ Student.prototype.setSubject = function(subjectName) {
 };
 
 Student.prototype.addMarks = function(...marksToAdd) {
-  if (this.excluded) {
+  if (!this.marks) {
     console.log(`Студент ${this.name} исключен, добавление оценок невозможно.`);
     return;
   }
@@ -21,21 +19,16 @@ Student.prototype.addMarks = function(...marksToAdd) {
 };
 
 Student.prototype.getAverage = function() {
-  if (this.marks.length === 0) {
+  if (!this.marks || !this.marks.length) {
     return 0;
   }
-  const sum = this.marks.reduce((acc, mark) => acc + mark, 0);
+  const sum = this.marks.reduce((acc, curr) => acc + curr);
   return sum / this.marks.length;
 };
 
 Student.prototype.exclude = function(reason) {
-  this.subject = undefined;
-  this.marks = [];
-  this.excluded = true;
-  this.exclusionReason = reason;
-  if (reason === 'прогулы') {
-    console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
-  } else {
-    console.log(`Студент ${this.name} был исключен`);
-  }
+  delete this.subject;
+  delete this.marks;
+  this.excluded = reason;
+  console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
 };
