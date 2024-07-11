@@ -4,7 +4,7 @@ function Student(name, gender, age) {
   this.age = age;
   this.subject = null;
   this.marks = [];
-  this.excluded = null;
+  this.excluded = false;
 }
 
 Student.prototype.setSubject = function(subjectName) {
@@ -20,7 +20,7 @@ Student.prototype.addMarks = function(...marksToAdd) {
 };
 
 Student.prototype.getAverage = function() {
-  if (!this.marks || this.marks.length === 0) {
+  if (this.marks.length === 0) {
     return 0;
   }
   const sum = this.marks.reduce((acc, mark) => acc + mark, 0);
@@ -30,6 +30,6 @@ Student.prototype.getAverage = function() {
 Student.prototype.exclude = function(reason) {
   this.subject = null;
   this.marks = [];
-  this.excluded = reason;
+  this.excluded = true;
   console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
 };
