@@ -30,7 +30,7 @@ Student.prototype.getAverage = function() {
 
 Student.prototype.exclude = function(reason) {
   this.subject = undefined;
-  this.marks = undefined; // Устанавливаем marks в undefined
+  this.marks.length = 0; // Очищаем массив оценок
   this.excluded = true;
   this.exclusionReason = reason;
   console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
