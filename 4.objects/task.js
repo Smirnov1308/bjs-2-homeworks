@@ -35,3 +35,5 @@ Student.prototype.exclude = function(reason) {
   this.exclusionReason = reason;
   console.log(`Студент ${this.name} был исключен по причине: ${reason}`);
 };
+
+
